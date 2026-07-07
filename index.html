@@ -46,19 +46,35 @@
       border-radius: 20px;
       box-shadow: 0 20px 60px rgba(61,58,54,0.15);
       position: absolute;
-      display: none;
+      display: flex;
       flex-direction: column;
       overflow: hidden;
+      opacity: 0;
+      z-index: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
     }
 
     .page.active {
       display: flex;
-      animation: fadeIn 0.4s ease;
+      opacity: 1;
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+    .page {
+      opacity: 0;
+      z-index: 0;
+      transition: opacity 0.3s ease;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-enter {
+      animation: fadeIn 0.4s ease;
     }
 
     .card-inner {
@@ -1190,6 +1206,10 @@
   function update() {
     pages.forEach((p, i) => {
       p.classList.toggle('active', i === current);
+      if (i === current) {
+        p.classList.add('page-enter');
+        setTimeout(() => p.classList.remove('page-enter'), 400);
+      }
     });
     dots.forEach((d, i) => {
       d.classList.toggle('active', i === current);
@@ -1217,16 +1237,37 @@
   });
 
   let touchStartX = 0;
+  let touchStartY = 0;
   let touchEndX = 0;
+  let touchEndY = 0;
+  let isScrolling = false;
 
   document.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
-  });
+    touchStartY = e.changedTouches[0].screenY;
+    isScrolling = false;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    const dx = Math.abs(e.changedTouches[0].screenX - touchStartX);
+    const dy = Math.abs(e.changedTouches[0].screenY - touchStartY);
+    if (dy > dx && dy > 10) {
+      isScrolling = true;
+    }
+  }, { passive: true });
 
   document.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
-    if (touchStartX - touchEndX > 50) goNext();
-    if (touchEndX - touchStartX > 50) goPrev();
+    touchEndY = e.changedTouches[0].screenY;
+    if (isScrolling) return;
+
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+      if (deltaX < 0) goNext();
+      else goPrev();
+    }
   });
 
   update();
