@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>川西318小环线B计划 · 翻页手账</title>
+  <title>川西318音乐节小环线路书</title>
   <style>
     :root {
       --bg: #FAF7F2;
@@ -53,6 +53,12 @@
 
     .page.active {
       display: flex;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .card-inner {
@@ -65,27 +71,27 @@
     .card-inner::-webkit-scrollbar { width: 4px; }
     .card-inner::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
 
-    .header { margin-bottom: 22px; }
+    .header { margin-bottom: 24px; }
 
     .day-badge {
       display: inline-block;
       background: var(--accent);
       color: white;
-      font: 500 13px/1 var(--font);
+      font: 500 14px/1 var(--font);
       padding: 7px 14px;
       border-radius: 100px;
       letter-spacing: 0.08em;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .header h1 {
-      font: 700 30px/1.15 var(--font);
+      font: 700 32px/1.15 var(--font);
       color: var(--text);
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
 
     .vibe {
-      font: 400 15px/1.5 var(--font);
+      font: 400 16px/1.5 var(--font);
       color: var(--text-mid);
     }
 
@@ -93,157 +99,193 @@
       background: var(--accent);
       color: white;
       border-radius: 16px;
-      padding: 16px 18px;
-      margin-bottom: 16px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
     }
 
-    .highlight-box p {
-      font: 400 14px/1.7 var(--font);
-    }
-
+    .highlight-box p { font: 400 15px/1.7 var(--font); }
     .highlight-box strong { font-weight: 600; }
+
+    .drive-safe {
+      background: #E8F3EA;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 18px;
+      border-left: 3px solid var(--accent2);
+    }
+
+    .drive-safe .safe-title {
+      font: 600 15px/1.4 var(--font);
+      color: #5A7A60;
+      margin-bottom: 6px;
+    }
+
+    .drive-safe .safe-text {
+      font: 400 13px/1.6 var(--font);
+      color: var(--text-mid);
+    }
 
     .section {
       background: var(--paper);
       border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 16px;
+      padding: 20px;
+      margin-bottom: 18px;
       box-shadow: 0 4px 20px rgba(61,58,54,0.04);
       border: 1px solid var(--rule);
     }
 
     .section-title {
-      font: 600 18px/1.3 var(--font);
+      font: 600 20px/1.3 var(--font);
       color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .section-title .icon { font-size: 20px; }
+    .section-title .icon { font-size: 22px; }
 
-    .overview-table {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--rule);
-      margin-bottom: 16px;
+    .segment {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed var(--rule);
     }
 
-    .overview-table table {
-      width: 100%;
-      border-collapse: collapse;
-      font: 400 12px/1.5 var(--font);
+    .segment:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .segment-title {
+      font: 600 16px/1.4 var(--font);
       color: var(--text);
+      margin-bottom: 6px;
     }
 
-    .overview-table th, .overview-table td {
-      text-align: left;
-      padding: 8px 9px;
-      border-bottom: 1px solid var(--rule);
-      vertical-align: top;
+    .segment-meta {
+      font: 400 13px/1.5 var(--font);
+      color: var(--text-dim);
+      margin-bottom: 8px;
     }
 
-    .overview-table th {
-      font-weight: 600;
-      color: var(--text);
+    .segment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font: 400 14px/1.6 var(--font);
+      color: var(--text-mid);
+    }
+
+    .segment-list li { list-style: none; padding-left: 16px; position: relative; }
+    .segment-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .time-block {
       background: #F5F0E8;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      font: 500 14px/1.5 var(--font);
+      color: var(--text);
     }
 
-    .overview-table td { color: var(--text-mid); }
-
-    .overview-table tr:last-child td { border-bottom: none; }
+    .time-block span {
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
 
-    .time-item {
-      display: flex;
-      gap: 10px;
-    }
+    .time-item { display: flex; gap: 12px; }
 
     .time-dot {
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: var(--accent3);
-      margin-top: 4px;
+      margin-top: 5px;
       flex-shrink: 0;
     }
 
     .time-content { flex: 1; }
 
     .time-content .time {
-      font: 500 13px/1.4 var(--font);
+      font: 500 14px/1.4 var(--font);
       color: var(--accent);
       margin-bottom: 2px;
     }
 
     .time-content .thing {
-      font: 500 15px/1.4 var(--font);
+      font: 500 17px/1.4 var(--font);
       color: var(--text);
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
 
     .time-content .note {
-      font: 400 13px/1.55 var(--font);
+      font: 400 14px/1.55 var(--font);
       color: var(--text-mid);
     }
 
     .tips-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 12px;
     }
 
     .tip-box {
       background: #F5F0E8;
       border-radius: 12px;
-      padding: 12px;
+      padding: 14px;
     }
 
     .tip-box .tip-title {
-      font: 600 14px/1.4 var(--font);
+      font: 600 15px/1.4 var(--font);
       color: var(--text);
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .tip-box .tip-text {
-      font: 400 12px/1.6 var(--font);
+      font: 400 13px/1.6 var(--font);
       color: var(--text-mid);
     }
 
-    .photo-spot {
+    .food-card {
       background: linear-gradient(135deg, #F8F4EE 0%, #F0EAE2 100%);
       border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 8px;
+      padding: 14px;
+      margin-bottom: 10px;
       border-left: 3px solid var(--accent);
     }
 
-    .photo-spot:last-child { margin-bottom: 0; }
+    .food-card:last-child { margin-bottom: 0; }
 
-    .photo-spot .spot-name {
-      font: 600 14px/1.4 var(--font);
+    .food-card .food-title {
+      font: 600 15px/1.4 var(--font);
       color: var(--text);
       margin-bottom: 4px;
     }
 
-    .photo-spot .spot-desc {
-      font: 400 12px/1.6 var(--font);
+    .food-card .food-detail {
+      font: 400 13px/1.5 var(--font);
       color: var(--text-mid);
     }
 
     .tag {
       display: inline-block;
-      font: 400 12px/1 var(--font);
-      padding: 5px 10px;
+      font: 400 13px/1 var(--font);
+      padding: 6px 12px;
       border-radius: 100px;
-      margin-right: 5px;
-      margin-bottom: 5px;
+      margin-right: 6px;
+      margin-bottom: 6px;
     }
 
     .tag-red { background: #F5E0DA; color: #A65D4A; }
@@ -255,70 +297,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 9px 0;
+      padding: 10px 0;
       border-bottom: 1px solid var(--rule);
-      font: 400 14px/1.5 var(--font);
+      font: 400 15px/1.5 var(--font);
     }
 
     .info-row:last-child { border-bottom: none; }
-
     .info-row .label { color: var(--text); }
     .info-row .value { color: var(--text-mid); text-align: right; }
 
-    .food-list { display: flex; flex-direction: column; gap: 8px; }
-
-    .food-item {
-      background: linear-gradient(135deg, #F8F4EE 0%, #F0EAE2 100%);
-      border-radius: 12px;
-      padding: 12px;
-      border-left: 3px solid var(--accent);
-    }
-
-    .food-item .food-place {
-      font: 600 14px/1.4 var(--font);
-      color: var(--text);
-      margin-bottom: 3px;
-    }
-
-    .food-item .food-detail {
-      font: 400 12px/1.5 var(--font);
-      color: var(--text-mid);
-    }
-
-    .table-wrap {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--rule);
-      margin-bottom: 10px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font: 400 13px/1.5 var(--font);
-      color: var(--text);
-    }
-
-    th, td {
-      text-align: left;
-      padding: 7px 9px;
-      border-bottom: 1px solid var(--rule);
-      vertical-align: top;
-    }
-
-    th {
-      font-weight: 600;
-      color: var(--text);
-      background: #F5F0E8;
-    }
-
-    td { color: var(--text-mid); }
-
-    tr:last-child td { border-bottom: none; }
-
     .footer-bar {
       flex-shrink: 0;
-      padding: 14px 22px;
+      padding: 16px 24px;
       border-top: 1px solid var(--rule);
       display: flex;
       align-items: center;
@@ -329,29 +319,23 @@
     .footer-bar .author {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
     }
 
     .footer-bar .avatar {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       object-fit: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font: 500 12px/1 sans-serif;
-      color: #A65D4A;
-      background: linear-gradient(135deg, #F5D0C5 0%, #E8B4B8 100%);
     }
 
     .footer-bar .author-name {
-      font: 500 15px/1 var(--font);
+      font: 500 16px/1 var(--font);
       color: var(--text-mid);
     }
 
-    .footer-bar .page {
-      font: 400 13px/1 var(--font);
+    .footer-bar .page-num {
+      font: 400 14px/1 var(--font);
       color: var(--text-dim);
     }
 
@@ -359,13 +343,13 @@
       position: fixed;
       top: 50%;
       transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--paper);
       border: 1px solid var(--rule);
       color: var(--accent);
-      font-size: 18px;
+      font-size: 20px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -375,13 +359,13 @@
     }
 
     .nav-btn:hover { background: var(--accent); color: white; }
-    .nav-btn.prev { left: 10px; }
-    .nav-btn.next { right: 10px; }
+    .nav-btn.prev { left: 12px; }
+    .nav-btn.next { right: 12px; }
     .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
     .dots {
       position: fixed;
-      bottom: 22px;
+      bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -401,65 +385,40 @@
 
     .hint {
       position: fixed;
-      bottom: 6px;
+      bottom: 8px;
       left: 50%;
       transform: translateX(-50%);
-      font: 400 11px/1 var(--font);
+      font: 400 12px/1 var(--font);
       color: var(--text-dim);
       z-index: 10;
     }
 
-    .drive-safe {
-      background: #E8F3EA;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 16px;
-      border-left: 3px solid var(--accent2);
-    }
-
-    .drive-safe .safe-title {
-      font: 600 14px/1.4 var(--font);
-      color: #5A7A60;
-      margin-bottom: 5px;
-    }
-
-    .drive-safe .safe-text {
-      font: 400 12px/1.6 var(--font);
-      color: var(--text-mid);
-    }
-
-    .notice-box {
+    .summary-block {
       background: #F5F0E8;
       border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 16px;
-      border-left: 3px solid var(--accent3);
+      padding: 14px;
+      margin-bottom: 12px;
     }
 
-    .notice-box .notice-title {
-      font: 600 14px/1.4 var(--font);
+    .summary-block .summary-title {
+      font: 600 15px/1.4 var(--font);
       color: var(--text);
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
-    .notice-box .notice-text {
-      font: 400 12px/1.6 var(--font);
+    .summary-block .summary-text {
+      font: 400 13px/1.6 var(--font);
       color: var(--text-mid);
-    }
-
-    .small-text {
-      font: 400 12px/1.6 var(--font);
-      color: var(--text-dim);
-      margin-top: 10px;
     }
 
     @media (max-width: 480px) {
       .page { width: 94vw; height: 88vh; }
-      .card-inner { padding: 22px 18px 18px; }
-      .header h1 { font-size: 26px; }
-      .nav-btn { width: 36px; height: 36px; font-size: 15px; }
-      .nav-btn.prev { left: 5px; }
-      .nav-btn.next { right: 5px; }
+      .card-inner { padding: 24px 20px 20px; }
+      .header h1 { font-size: 28px; }
+      .nav-btn { width: 38px; height: 38px; font-size: 16px; }
+      .nav-btn.prev { left: 6px; }
+      .nav-btn.next { right: 6px; }
+      .tips-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -467,372 +426,380 @@
 
 <div class="book">
 
-  <!-- 封面/总览 -->
+  <!-- Day 1 -->
   <div class="page active" data-index="0">
     <div class="card-inner">
       <div class="header">
-        <span class="day-badge">川西318小环线B计划 · 7月17-20日</span>
-        <h1>四日旅行路书</h1>
-        <p class="vibe">逆时针走北进南出，19日全天塔公音乐节，晚上回到新都桥休息。</p>
-      </div>
-
-      <div class="notice-box">
-        <div class="notice-title">🏨 住宿确认</div>
-        <div class="notice-text">7月19日晚住 <strong>康定那密民宿</strong>，地址：新都桥镇拔桑一村，海拔约3300m。音乐节结束23:00后开车33km返回，约45分钟，不走折多山夜路。</div>
-      </div>
-
-      <div class="section">
-        <div class="section-title"><span class="icon">🗺️</span> 行程总览</div>
-        <div class="overview-table">
-          <table>
-            <tr><th>日期</th><th>路线</th><th>里程</th><th>住宿地</th><th>海拔</th></tr>
-            <tr><td>7.17 周五</td><td>成都→四姑娘山镇</td><td>约230km</td><td>四姑娘山镇</td><td>3200m</td></tr>
-            <tr><td>7.18 周六</td><td>四姑娘山→丹巴→塔公</td><td>约220km</td><td>塔公镇</td><td>3730m</td></tr>
-            <tr><td>7.19 周日</td><td>塔公音乐节→新都桥</td><td>约33km</td><td>新都桥拔桑一村</td><td>3300m</td></tr>
-            <tr><td>7.20 周一</td><td>新都桥→康定→泸定→成都</td><td>约420km</td><td>成都</td><td>500m</td></tr>
-          </table>
-        </div>
-        <p class="small-text">全程约870km，纯驾驶约15.5–18h。B计划特点：避开折多山垭口、避开甲居藏寨旅行团、不走夜路翻山。</p>
-      </div>
-
-      <div class="section">
-        <div class="section-title"><span class="icon">⚠️</span> 总体安全原则</div>
-        <div class="tips-grid">
-          <div class="tip-box">
-            <div class="tip-title">不赶夜路</div>
-            <div class="tip-text">每天日落前抵达住宿地，山区夜路危险。</div>
-          </div>
-          <div class="tip-box">
-            <div class="tip-title">不翻高海拔垭口夜路</div>
-            <div class="tip-text">返程走省道434，海拔更低、车更少。</div>
-          </div>
-          <div class="tip-box">
-            <div class="tip-title">防牦牛/落石</div>
-            <div class="tip-text">塔公、丹巴段常遇牲畜横穿，弯道减速。</div>
-          </div>
-          <div class="tip-box">
-            <div class="tip-title">备高反物资</div>
-            <div class="tip-text">氧气瓶、葡萄糖、感冒药，人均至少1瓶氧。</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="footer-bar">
-      <div class="author">
-        <div class="avatar" style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#F5D0C5 0%,#E8B4B8 100%);display:flex;align-items:center;justify-content:center;font:500 12px/1 sans-serif;color:#A65D4A;">JT</div>
-        <span class="author-name">JT</span>
-      </div>
-      <span class="page">1 / 6</span>
-    </div>
-  </div>
-
-  <!-- Day 1 -->
-  <div class="page" data-index="1">
-    <div class="card-inner">
-      <div class="header">
-        <span class="day-badge">DAY 1 · 7月17日 周五</span>
-        <h1>成都 → 四姑娘山镇</h1>
-        <p class="vibe">走巴朗山老路，避开映秀隧道车流，傍晚前抵达休息。</p>
+        <span class="day-badge">DAY 1 · 7月17日 周四</span>
+        <h1>成都 → 康定 → 折多山 → 新都桥</h1>
+        <p class="vibe">全程340km，约7.5h抵达新都桥。走雅康高速避开G318早段堵车，下午翻折多山。</p>
       </div>
 
       <div class="highlight-box">
-        <p><strong>今日主题</strong>：赶路+适应海拔。全程约230km，驾驶4.5–5.5h。晚上住四姑娘山镇（3200m），建议不洗澡、不熬夜。</p>
+        <p><strong>今日主题</strong>：赶路+适应海拔。8:30成都西门集合出发，经G4218雅康高速、G318折多山，傍晚入住新都桥3460m。</p>
       </div>
 
       <div class="drive-safe">
         <div class="safe-title">🚗 自驾安全提示</div>
-        <div class="safe-text">巴朗山垭口路段弯多雾大，下午易起云海；过了邓生沟开始爬升，控制车速，备氧气瓶。</div>
+        <div class="safe-text">折多山垭口海拔4298m，弯多风大、货车多；初到高原动作放缓，预防高反。新都桥当晚不建议洗澡、饮酒、剧烈运动。</div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🚗</span> 今天怎么过</div>
+        <div class="section-title"><span class="icon">🚗</span> 第一段：成都 → 天全服务区｜162km</div>
+        <div class="time-block">
+          预计耗时：<span>2h</span>（正常1h50min + 早高峰/暑期堵车预留10min）｜高速费：<span>70元</span>
+        </div>
         <div class="timeline">
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">07:00</div>
-              <div class="thing">成都西门出发</div>
-              <div class="note">走蓉昌高速转G350，避开早高峰三环路。</div>
+              <div class="time">08:30</div>
+              <div class="thing">成都西门统一出发</div>
+              <div class="note">走西三环路→成名高速→G4218雅康高速。7月暑假车流量大，务必8:30准时出发。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">09:30</div>
-              <div class="thing">耿达服务区休整</div>
-              <div class="note">熊猫大道最后补给点，加油、上厕所。</div>
+              <div class="time">10:30</div>
+              <div class="thing">抵达天全服务区</div>
+              <div class="note">318此生必驾打卡牌、峡谷溪流合影。服务区早餐简餐，7人约175元。</div>
             </div>
           </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">11:00</div>
-              <div class="thing">猫鼻梁观景台</div>
-              <div class="note">免费。拍四姑娘山全貌，停车15分钟，注意落石区勿久留。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">12:00</div>
-              <div class="thing">四姑娘山镇午餐</div>
-              <div class="note">野菌王牦牛肉汤锅，人均66元。初到高原，吃七分饱。</div>
-            </div>
-          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🍜</span> 午餐：康定溜溜城｜108km/1.5h</div>
+        <div class="time-block">
+          天全→康定：<span>1.5h</span>（隧道群限速80，基本不堵）｜高速费：<span>67元</span>｜预计<span>12:00</span>到康定
+        </div>
+        <div class="food-card">
+          <div class="food-title">推荐：青稞·藏餐吧 / 康定老城牦牛肉汤锅</div>
+          <div class="food-detail">7人整桌约480元。推荐：牦牛肉汤锅、酥油茶、青稞饼、酸奶。</div>
+        </div>
+        <div class="food-card">
+          <div class="food-title">备选：溜溜城小吃街</div>
+          <div class="food-detail">凉粉、锅魁、抄手，人均20–35元，适合快速解决。</div>
+        </div>
+        <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">饭后在康定情歌广场、折多河沿岸散步20分钟，打卡彩色藏式民居和康定情歌雕塑。</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🏔️</span> 第二段：康定 → 折多山垭口｜31km/40min</div>
+        <div class="time-block">
+          正常驾驶：<span>40min</span>｜7月旺季山顶停车拥堵预留：<span>+20min</span>｜停车费：<span>20元/车</span>
+        </div>
+        <div class="timeline">
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
               <div class="time">13:30</div>
-              <div class="thing">双桥沟景区</div>
-              <div class="note">门票+观光车150元/人。观光车直达红杉林，再一站站往下玩。</div>
+              <div class="thing">开始翻越折多山</div>
+              <div class="note">G318连续上坡弯道，大货车多，超车注意安全。海拔从2560m升到4298m。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">18:30</div>
-              <div class="thing">长坪驿晚餐 + 早睡</div>
-              <div class="note">牦牛肉汤锅、松茸炒饭。第一天别洗头别喝酒。</div>
+              <div class="time">14:10</div>
+              <div class="thing">折多山垭口拍照</div>
+              <div class="note">停留50分钟。打卡雪山全景、经幡群、4298m海拔碑。7人集体大片，动作放慢防高反。</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">📸</span> 小众出片机位</div>
-        <div class="photo-spot">
-          <div class="spot-name">1. 猫鼻梁 · 非主观景台</div>
-          <div class="spot-desc">主观景台人多的话，往前开200米 roadside 小平台，角度更正、车更少。</div>
+        <div class="section-title"><span class="icon">🌲</span> 第三段：折多山 → 新都桥镇｜39km/50min</div>
+        <div class="time-block">
+          正常驾驶：<span>50min</span>｜瓦泽乡至新都桥暑期缓行预留：<span>+15min</span>
         </div>
-        <div class="photo-spot">
-          <div class="spot-name">2. 双桥沟 · 珠噶纳措木栈道</div>
-          <div class="spot-desc">沿栈道往深处走5分钟，避开观光车人群，拍雪山倒影要无风。</div>
-        </div>
-        <div class="photo-spot">
-          <div class="spot-name">3. 双桥沟 · 人参果坪</div>
-          <div class="spot-desc">下午5点后人少，溪流+草甸+雪山，适合拍森系人像。</div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title"><span class="icon">🍜</span> 吃什么</div>
-        <span class="tag tag-red">野菌王牦牛肉汤锅</span>
-        <span class="tag tag-green">长坪驿多肉花园咖啡餐厅</span>
-        <span class="tag tag-brown">青稞饼 + 酥油茶</span>
-      </div>
-
-    </div>
-
-    <div class="footer-bar">
-      <div class="author">
-        <div class="avatar" style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#F5D0C5 0%,#E8B4B8 100%);display:flex;align-items:center;justify-content:center;font:500 12px/1 sans-serif;color:#A65D4A;">JT</div>
-        <span class="author-name">JT</span>
-      </div>
-      <span class="page">2 / 6</span>
-    </div>
-  </div>
-
-  <!-- Day 2 -->
-  <div class="page" data-index="2">
-    <div class="card-inner">
-      <div class="header">
-        <span class="day-badge">DAY 2 · 7月18日 周六</span>
-        <h1>四姑娘山 → 丹巴 → 塔公</h1>
-        <p class="vibe">走丹巴中路藏寨 instead of 甲居，经小众垭口到八美。</p>
-      </div>
-
-      <div class="highlight-box">
-        <p><strong>今日主题</strong>：最丰富也最赶路。全程约220km，驾驶5–5.5h。改走中路藏寨避开甲居旅行团，墨石公园走南门反向进入。</p>
-      </div>
-
-      <div class="drive-safe">
-        <div class="safe-title">🚗 自驾安全提示</div>
-        <div class="safe-text">小金到丹巴段沿大金河，部分路段窄且临崖；墨石公园到塔公走G248，弯道多、牦牛横穿频繁，日落前务必抵达。</div>
-      </div>
-
-      <div class="section">
-        <div class="section-title"><span class="icon">🚗</span> 今天怎么过</div>
         <div class="timeline">
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">07:30</div>
-              <div class="thing">四姑娘山镇出发</div>
-              <div class="note">早起，今天景点多，山路也多。</div>
+              <div class="time">15:00–15:30</div>
+              <div class="thing">瓦泽乡麦田 / 新都桥十里长廊</div>
+              <div class="note">沿途免费路边机位，边走边拍。夏季绿意+溪流+藏居，公路大片注意安全。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">10:00</div>
-              <div class="thing">中路藏寨</div>
-              <div class="note">免费，比甲居人少。一号观景台拍藏寨+墨尔多神山，寨子里拍人文。</div>
+              <div class="time">16:00</div>
+              <div class="thing">抵达新都桥镇入住酒店</div>
+              <div class="note">供氧观景民宿（2标间+1三人间），780元/晚，含次日早餐。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🌙</span> 晚餐 & 休息</div>
+        <div class="food-card">
+          <div class="food-title">推荐：等风来藏餐厅 / 新都桥牦牛肉汤锅</div>
+          <div class="food-detail">藏香猪、青稞饼、牦牛肉、松茸炒饭，7人约520元。初到高原吃七分饱。</div>
+        </div>
+        <div class="food-card">
+          <div class="food-title">备选：镇上川菜馆</div>
+          <div class="food-detail">吃不惯藏餐可选，回锅肉、番茄炒蛋、酸菜粉丝汤，人均40–50元。</div>
+        </div>
+        <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">晚上不洗澡、不喝酒、不熬夜。如头痛胸闷，民宿有弥散供氧，氧气罐约20元/罐。</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">💰</span> D1 当日花销汇总</div>
+        <div class="info-row"><span class="label">早餐（天全服务区）</span><span class="value">175元</span></div>
+        <div class="info-row"><span class="label">午餐（康定）</span><span class="value">480元</span></div>
+        <div class="info-row"><span class="label">晚餐（新都桥）</span><span class="value">520元</span></div>
+        <div class="info-row"><span class="label">住宿（新都桥）</span><span class="value">780元</span></div>
+        <div class="info-row"><span class="label">高速费</span><span class="value">137元</span></div>
+        <div class="info-row"><span class="label">油费（约340km，11L/100km）</span><span class="value">约313元</span></div>
+        <div class="info-row"><span class="label">停车费</span><span class="value">20元</span></div>
+        <div class="info-row"><span class="label"><strong>D1合计</strong></span><span class="value"><strong>2425元</strong></span></div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="author">
+        <img class="avatar" src="file://C:/Users/Administrator/.claude/skills/ljg-card/assets/avatar_jt.png" alt="">
+        <span class="author-name">JT</span>
+      </div>
+      <span class="page-num">1 / 5</span>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="page" data-index="1">
+    <div class="card-inner">
+      <div class="header">
+        <span class="day-badge">DAY 2 · 7月18日 周五</span>
+        <h1>新都桥 → 甲根坝 → 姑弄村 → 鱼子西 → 塔公镇</h1>
+        <p class="vibe">全程约115km，全省道0高速费。甲根坝拍藏寨田园，鱼子西看双雪山，傍晚到塔公。</p>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>今日主题</strong>：小众田园+双雪山同框。甲根坝是近年新晋小众点，比新都桥更安静原始；鱼子西看雅拉+贡嘎雪山，傍晚入住塔公3730m。</p>
+      </div>
+
+      <div class="drive-safe">
+        <div class="safe-title">🚗 自驾安全提示</div>
+        <div class="safe-text">G248、S434弯道多，甲根坝乡道较窄注意会车；鱼子西最后3km土路颠簸，塔公段牦牛横穿频繁。当日点多，务必避免疲劳驾驶。</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🚗</span> 第一段：新都桥 → 甲根坝｜35km/45min</div>
+        <div class="time-block">
+          正常驾驶：<span>45min</span>｜G248国道+乡道｜0门票｜7月旺季乡道会车预留：<span>+15min</span>
+        </div>
+        <div class="timeline">
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">08:00</div>
+              <div class="thing">酒店早餐后退房出发</div>
+              <div class="note">走G248国道往甲根坝方向，沿途新都桥河谷森林、藏式民居，夏季绿意浓郁。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">11:30</div>
-              <div class="thing">藏寨午餐</div>
-              <div class="note">丹巴格西长清藏家乐，香猪腿、酸菜面块、糌粑。</div>
+              <div class="time">08:45</div>
+              <div class="thing">抵达甲根坝</div>
+              <div class="note">游玩约2h。小众藏族村寨，青稞田、溪流、雪山背景，比新都桥镇更安静原始。</div>
+            </div>
+          </div>
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">08:45–10:45</div>
+              <div class="thing">甲根坝村寨闲逛+拍照</div>
+              <div class="note">沿溪边木栈道走，拍青稞田、藏式碉楼、雪山倒影。无人机可飞，注意避让民居和牲畜。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🍜</span> 午餐：甲根坝藏家乐｜就地用餐</div>
+        <div class="time-block">
+          预计<span>11:00–12:00</span>用餐｜7人约350元
+        </div>
+        <div class="food-card">
+          <div class="food-title">推荐：甲根坝藏家乐</div>
+          <div class="food-detail">牛肉盖被、藏面、酥油茶、酸奶，7人约350元。提前联系藏家乐预留座位。</div>
+        </div>
+        <div class="food-card">
+          <div class="food-title">备选：自带干粮/自热米饭</div>
+          <div class="food-detail">甲根坝餐厅少，可提前在新都桥超市采购，7人约150元。</div>
+        </div>
+        <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">甲根坝停留约3h（含用餐）。这里人少景野，适合拍藏寨人文和田园风光。</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🏔️</span> 第二段：甲根坝 → 鱼子西｜约50km/1h10min</div>
+        <div class="time-block">
+          正常驾驶：<span>1h10min</span>｜G248+S434｜最后3km土路窄且颠，预留：<span>+15min</span>｜门票：<span>30元/人，7人210元</span>
+        </div>
+        <div class="timeline">
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">13:30</div>
+              <div class="thing">抵达鱼子西星空营地</div>
+              <div class="note">游玩1.5h。核心机位：雅拉雪山+贡嘎雪山同框、网红秋千、木栈道、经幡。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
               <div class="time">15:00</div>
-              <div class="thing">墨石公园（南门反向进）</div>
-              <div class="note">门票+观光车80元/人。南门进先达核心区，避开北门旅行团。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">18:00</div>
-              <div class="thing">塔公草原后山等日落</div>
-              <div class="note">导航"塔公草原-木雅金塔"，往后山小路上爬100米，雅拉雪山+金塔同框。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">20:00</div>
-              <div class="thing">塔公镇晚餐 + 休息</div>
-              <div class="note">牦牛肉汤锅，海拔3730m，别喝酒、别洗澡。</div>
+              <div class="thing">下山前往塔公镇</div>
+              <div class="note">下山土路同样颠簸，控制车速。如天气不好云雾重，可缩短停留时间。</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">📸</span> 小众出片机位</div>
-        <div class="photo-spot">
-          <div class="spot-name">1. 中路藏寨 · 一号观景台</div>
-          <div class="spot-desc">清晨云雾+藏寨+墨尔多神山，比甲居更原始。观景台旁小路可往下走。</div>
+        <div class="section-title"><span class="icon">🌄</span> 第三段：鱼子西 → 塔公镇｜30km/40min</div>
+        <div class="time-block">
+          正常驾驶：<span>40min</span>｜S434省道｜塔公镇牦牛穿行，预留：<span>+10min</span>
         </div>
-        <div class="photo-spot">
-          <div class="spot-name">2. 中路藏寨 · 百年碉楼</div>
-          <div class="spot-desc">走进寨子深处，找村民问哪座碉楼可上，人文感极强。</div>
-        </div>
-        <div class="photo-spot">
-          <div class="spot-name">3. 墨石公园 · 异域星球核心区</div>
-          <div class="spot-desc">黑灰石林为背景，穿红/黄/白最出片。广角低角度拍走路抓拍。</div>
-        </div>
-        <div class="photo-spot">
-          <div class="spot-name">4. 塔公后山 · 雅拉雪山小众视角</div>
-          <div class="spot-desc">木雅金塔后坡，日落前1小时占位置，可租藏服拍写真。</div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title"><span class="icon">👗</span> 穿搭 & 小物</div>
-        <div class="tips-grid">
-          <div class="tip-box">
-            <div class="tip-title">藏寨穿搭</div>
-            <div class="tip-text">明黄色/白色 + 民族风披肩。避免深灰/黑色。</div>
-          </div>
-          <div class="tip-box">
-            <div class="tip-title">墨石穿搭</div>
-            <div class="tip-text">红/黄/白亮色，或全黑酷帅风。</div>
-          </div>
-          <div class="tip-box">
-            <div class="tip-title">草原穿搭</div>
-            <div class="tip-text">藏服写真最应景，风大记得带外套。</div>
-          </div>
-          <div class="tip-box">
-            <div class="tip-title">必备小物</div>
-            <div class="tip-text">墨镜、帽子、氧气瓶、防晒霜、暖宝宝。</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title"><span class="icon">🍜</span> 吃什么</div>
-        <span class="tag tag-red">丹巴格西长清藏家乐</span>
-        <span class="tag tag-green">母亲指路藏餐厅</span>
-        <span class="tag tag-brown">塔公牦牛肉汤锅</span>
-      </div>
-
-    </div>
-
-    <div class="footer-bar">
-      <div class="author">
-        <div class="avatar" style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#F5D0C5 0%,#E8B4B8 100%);display:flex;align-items:center;justify-content:center;font:500 12px/1 sans-serif;color:#A65D4A;">JT</div>
-        <span class="author-name">JT</span>
-      </div>
-      <span class="page">3 / 6</span>
-    </div>
-  </div>
-
-  <!-- Day 3 -->
-  <div class="page" data-index="3">
-    <div class="card-inner">
-      <div class="header">
-        <span class="day-badge">DAY 3 · 7月19日 周日</span>
-        <h1>塔公音乐节 → 新都桥</h1>
-        <p class="vibe">全天草原音乐节，晚上只开33km平路回新都桥睡觉。</p>
-      </div>
-
-      <div class="highlight-box">
-        <p><strong>今日主题</strong>：只看音乐节，不安排其他景点。23:00结束后开车33km回新都桥那密民宿，约45分钟，不走折多山夜路。</p>
-      </div>
-
-      <div class="drive-safe">
-        <div class="safe-title">🚗 自驾安全提示</div>
-        <div class="safe-text">音乐节结束23:00后，塔公→新都桥是平路+缓下坡，但仍要注意牦牛横穿和对向车灯。如遇下雨，降低车速。</div>
-      </div>
-
-      <div class="section">
-        <div class="section-title"><span class="icon">🎵</span> 今天怎么过</div>
         <div class="timeline">
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">08:00</div>
-              <div class="thing">起床早餐</div>
-              <div class="note">清淡饮食，多吃碳水，为全天储备体力。</div>
+              <div class="time">16:00–17:00</div>
+              <div class="thing">塔公寺外围 + 草原闲逛</div>
+              <div class="note">塔公寺红墙免费拍照，草原野花、牦牛群、木雅金塔日落前光影极佳。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">09:00</div>
-              <div class="thing">退房，行李装车</div>
-              <div class="note">塔公镇到会场很近，开车去占个好车位。</div>
+              <div class="time">17:30</div>
+              <div class="thing">入住塔公镇供氧民宿</div>
+              <div class="note">3间客房，700元/晚，含次日早餐。海拔3730m，注意高反。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🌙</span> 晚餐 & 休息</div>
+        <div class="food-card">
+          <div class="food-title">推荐：塔公镇川味汤锅店 / 藏餐吧</div>
+          <div class="food-detail">牦牛肉汤锅、酸奶、糌粑，7人约450元。热汤暖胃，适合高海拔夜晚。</div>
+        </div>
+        <div class="food-card">
+          <div class="food-title">备选：镇上川菜小馆</div>
+          <div class="food-detail">回锅肉、麻婆豆腐、番茄蛋汤，人均45–55元。</div>
+        </div>
+        <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">塔公海拔3730m，是全程最高住宿点。当晚务必早睡，为第二天音乐节储备体力。不洗澡、不喝酒。</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">💰</span> D2 当日花销汇总</div>
+        <div class="info-row"><span class="label">午餐（甲根坝藏家乐）</span><span class="value">350元</span></div>
+        <div class="info-row"><span class="label">晚餐（塔公镇）</span><span class="value">450元</span></div>
+        <div class="info-row"><span class="label">住宿（塔公镇）</span><span class="value">700元</span></div>
+        <div class="info-row"><span class="label">鱼子西门票</span><span class="value">210元</span></div>
+        <div class="info-row"><span class="label">油费（约115km）</span><span class="value">约110元</span></div>
+        <div class="info-row"><span class="label">高速费</span><span class="value">0元</span></div>
+        <div class="info-row"><span class="label"><strong>D2合计</strong></span><span class="value"><strong>1820元</strong></span></div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="author">
+        <img class="avatar" src="file://C:/Users/Administrator/.claude/skills/ljg-card/assets/avatar_jt.png" alt="">
+        <span class="author-name">JT</span>
+      </div>
+      <span class="page-num">2 / 5</span>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="page" data-index="2">
+    <div class="card-inner">
+      <div class="header">
+        <span class="day-badge">DAY 3 · 7月19日 周六</span>
+        <h1>塔公草原音乐节 → 康定密那民宿</h1>
+        <p class="vibe">音乐节核心日。12:00入场，21:00结束，夜间97km盘山省道回康定。</p>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>今日主题</strong>：只看音乐节。21:00结束后开97km夜路约1.5h回康定密那民宿，这是硬性固定住宿。</p>
+      </div>
+
+      <div class="drive-safe">
+        <div class="safe-title">🚗 自驾安全提示</div>
+        <div class="safe-text">塔公→康定S434盘山省道夜间无路灯，注意落石、对向车灯、牦牛横穿；建议两位司机轮换，控制车速。</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🌅</span> 上午：塔公草原拍照｜3km/5min</div>
+        <div class="time-block">
+          塔公镇→音乐节场地：<span>3km/5min</span>｜草原小路｜停车清洁费：<span>20元/车</span>
+        </div>
+        <div class="timeline">
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">09:00–11:00</div>
+              <div class="thing">草原自由拍照</div>
+              <div class="note">避开正午强光，拍雅拉雪山全景、草原野花、木雅金塔、音乐节舞台布景。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">10:00</div>
-              <div class="thing">到达音乐节现场</div>
-              <div class="note">提前找位置，12:00演出开始。</div>
+              <div class="time">11:00–12:00</div>
+              <div class="thing">塔公镇午餐</div>
+              <div class="note">川菜小炒/面馆，7人约350元。吃饱，为全天音乐节储备体力。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🎵</span> 下午+晚上：塔公草原音乐节｜12:00–21:00</div>
+        <div class="time-block">
+          入场时间：<span>12:00</span>｜结束时间：<span>21:00</span>｜建议停车靠近舞台区域
+        </div>
+        <div class="timeline">
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">12:00–15:00</div>
+              <div class="thing">白天场+拍照</div>
+              <div class="note">雪山舞台、藏式市集、草原野花。光线强，防晒必须到位。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">12:00–23:00</div>
-              <div class="thing">甘孜塔公318音乐节</div>
-              <div class="note">跨度11小时，白天防晒、夜间保暖、带好氧气瓶。</div>
+              <div class="time">15:00–18:30</div>
+              <div class="thing">黄金时段</div>
+              <div class="note">日落金光、雅拉雪山背景人像、舞台侧逆光，出片率最高。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">23:00</div>
-              <div class="thing">离场，返回新都桥</div>
-              <div class="note">避开人流高峰，33km夜路，注意牦牛横穿。</div>
+              <div class="time">18:30–21:00</div>
+              <div class="thing">夜间场</div>
+              <div class="note">灯光秀、冷烟花、篝火。夜间气温降至8–12°C，羽绒服/冲锋衣必须随身带。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">00:30</div>
-              <div class="thing">入住那密民宿</div>
-              <div class="note">新都桥镇拔桑一村，海拔3300m。</div>
+              <div class="time">21:00–22:30</div>
+              <div class="thing">离场 → 康定密那民宿｜97km/1.5h</div>
+              <div class="note">避开离场高峰，走S434盘山省道夜路。两位司机轮换，开雾灯、控车速。</div>
             </div>
           </div>
         </div>
@@ -843,260 +810,249 @@
         <div class="tips-grid">
           <div class="tip-box">
             <div class="tip-title">防晒</div>
-            <div class="tip-text">防晒霜、帽子、墨镜、口罩、唇膏。高原紫外线极强。</div>
+            <div class="tip-text">高倍防晒霜、帽子、墨镜、口罩、唇膏。高原紫外线极强。</div>
           </div>
           <div class="tip-box">
             <div class="tip-title">保暖</div>
-            <div class="tip-text">羽绒服/冲锋衣、暖宝宝。夜间可能降至5–10°C。</div>
+            <div class="tip-text">羽绒服/冲锋衣、暖宝宝、厚袜子。夜间可能降至8–12°C。</div>
           </div>
           <div class="tip-box">
             <div class="tip-title">补给</div>
-            <div class="tip-text">保温杯、干粮、氧气瓶、充电宝、现金。</div>
+            <div class="tip-text">矿泉水、面包、零食、巧克力、充电宝、现金。场内物价高。</div>
           </div>
           <div class="tip-box">
             <div class="tip-title">其他</div>
-            <div class="tip-text">湿巾、纸巾、垃圾袋、身份证。现场可能有信号问题。</div>
+            <div class="tip-text">湿巾、纸巾、垃圾袋、身份证、氧气瓶、折叠凳。</div>
           </div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">📸</span> 音乐节拍照Tips</div>
-        <div class="photo-spot">
-          <div class="spot-name">草原 + 雪山背景</div>
-          <div class="spot-desc">以雅拉雪山为背景拍人像，下午光线柔和，傍晚可能有日照金山。</div>
+        <div class="section-title"><span class="icon">🌙</span> 宵夜 & 住宿</div>
+        <div class="food-card">
+          <div class="food-title">23:20 康定密那民宿楼下烧烤</div>
+          <div class="food-detail">7人约320元。烤串+啤酒（可少量），吃完直接上楼休息。</div>
         </div>
-        <div class="photo-spot">
-          <div class="spot-name">经幡群 / 木雅金塔</div>
-          <div class="spot-desc">音乐节间隙去塔公寺附近，经幡+金塔很有藏地氛围感。</div>
-        </div>
-        <div class="photo-spot">
-          <div class="spot-name">夜晚灯光舞台</div>
-          <div class="spot-desc">手机夜景模式拍舞台，记得带充电宝。冷烟花/灯光秀很出片。</div>
+        <div class="food-card">
+          <div class="food-title">住宿：康定密那民宿（固定）</div>
+          <div class="food-detail">3间观景客房，920元/晚，含次日早餐。海拔约2560m，可好好休息。</div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🍜</span> 吃什么</div>
-        <span class="tag tag-red">自带干粮</span>
-        <span class="tag tag-green">场内小吃</span>
-        <span class="tag tag-brown">塔公镇牦牛肉汤锅</span>
+        <div class="section-title"><span class="icon">💰</span> D3 当日花销汇总</div>
+        <div class="info-row"><span class="label">午餐（塔公镇）</span><span class="value">350元</span></div>
+        <div class="info-row"><span class="label">宵夜（康定）</span><span class="value">320元</span></div>
+        <div class="info-row"><span class="label">住宿（康定密那民宿）</span><span class="value">920元</span></div>
+        <div class="info-row"><span class="label">油费（约100km）</span><span class="value">约92元</span></div>
+        <div class="info-row"><span class="label">停车费（草原清洁费）</span><span class="value">20元</span></div>
+        <div class="info-row"><span class="label">高速费</span><span class="value">0元</span></div>
+        <div class="info-row"><span class="label"><strong>D3合计</strong></span><span class="value"><strong>1702元</strong></span></div>
       </div>
-
     </div>
 
     <div class="footer-bar">
       <div class="author">
-        <div class="avatar" style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#F5D0C5 0%,#E8B4B8 100%);display:flex;align-items:center;justify-content:center;font:500 12px/1 sans-serif;color:#A65D4A;">JT</div>
+        <img class="avatar" src="file://C:/Users/Administrator/.claude/skills/ljg-card/assets/avatar_jt.png" alt="">
         <span class="author-name">JT</span>
       </div>
-      <span class="page">4 / 6</span>
+      <span class="page-num">3 / 5</span>
     </div>
   </div>
 
   <!-- Day 4 -->
-  <div class="page" data-index="4">
+  <div class="page" data-index="3">
     <div class="card-inner">
       <div class="header">
-        <span class="day-badge">DAY 4 · 7月20日 周一</span>
-        <h1>新都桥 → 成都</h1>
-        <p class="vibe">走省道434 instead of 折多山，风景好、车少、更安全。</p>
+        <span class="day-badge">DAY 4 · 7月20日 周日</span>
+        <h1>康定 → S434机场路 → 成都</h1>
+        <p class="vibe">全程305km全新返程线。红海子+斯丁措航拍，17:10到成都，满足18:00前到家。</p>
       </div>
 
       <div class="highlight-box">
-        <p><strong>今日主题</strong>：返程。全程约420km，驾驶6.5–7.5h。省道434经康定机场、红海子的风景比折多山垭口更开阔，且避开重车。</p>
+        <p><strong>今日主题</strong>：返程不重复。S434康定机场路（彩虹公路）全新景观线，完全避开折多山，风景和去程完全不同。</p>
       </div>
 
       <div class="drive-safe">
         <div class="safe-title">🚗 自驾安全提示</div>
-        <div class="safe-text">省道434海拔最高处约4100m，比折多山垭口低200m，但仍有急弯；康定上高速前可在瓦斯沟加油，泸定后全程高速回成都。</div>
+        <div class="safe-text">S434机场路车少弯多、海拔高，拍照停车务必靠边；泸定上高速后3h直达成都，预留充足缓冲。</div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🚗</span> 今天怎么过</div>
+        <div class="section-title"><span class="icon">🚗</span> 第一段：康定 → 红海子｜22km/30min</div>
+        <div class="time-block">
+          正常驾驶：<span>30min</span>｜S434彩虹机场路｜免费｜上午光线最佳
+        </div>
         <div class="timeline">
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
               <div class="time">08:00</div>
-              <div class="thing">新都桥出发</div>
-              <div class="note">从拔桑一村那密民宿出发，走省道434往康定机场方向。</div>
+              <div class="thing">酒店早餐后退房出发</div>
+              <div class="note">从康定密那民宿出发，走S434往康定机场方向，一路彩虹公路+雪山远景。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">08:40</div>
-              <div class="thing">新都桥十里长廊</div>
-              <div class="note">夏季绿意+溪流+藏居，沿G318往塔公方向反走一小段即可。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">09:30</div>
-              <div class="thing">省道434 · 康定机场路</div>
-              <div class="note">笔直机场跑道+贡嘎/雅拉雪山远景， roadside 可短暂停车拍照。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">10:30</div>
-              <div class="thing">红海子（迦嘎措）</div>
-              <div class="note">免费小众海子，雪山倒影。路边停车注意来往车辆。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">12:00</div>
-              <div class="thing">康定午餐</div>
-              <div class="note">田凉粉或老字号李凉粉，配锅魁。海拔已降到2560m。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">14:00</div>
-              <div class="thing">泸定桥</div>
-              <div class="note">门票10元/人。走铁索桥，拍红色主题大片。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">15:00</div>
-              <div class="thing">泸定下午茶/休整</div>
-              <div class="note">高家豆花饭，人均27元。豆花卖完早，尽早去。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">15:30</div>
-              <div class="thing">雅康高速返程</div>
-              <div class="note">约3小时回成都。天全服务区可休息吃饭。</div>
-            </div>
-          </div>
-          <div class="time-item">
-            <div class="time-dot"></div>
-            <div class="time-content">
-              <div class="time">18:30</div>
-              <div class="thing">到达成都</div>
-              <div class="note">周一返程，避开下午进城高峰。</div>
+              <div class="time">08:30–09:10</div>
+              <div class="thing">红海子拍照</div>
+              <div class="note">停留40分钟。雪山镜面湖泊，免费网红机位。浅色系长裙+草帽最出片。</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">📸</span> 小众出片机位</div>
-        <div class="photo-spot">
-          <div class="spot-name">1. 省道434 · 机场路</div>
-          <div class="spot-desc">雪山+公路大片，车少路直。注意安全，不要坐路中间拍。</div>
+        <div class="section-title"><span class="icon">✈️</span> 第二段：红海子 → 斯丁措｜18km/25min</div>
+        <div class="time-block">
+          正常驾驶：<span>25min</span>｜S434省道｜小众免费机位
         </div>
-        <div class="photo-spot">
-          <div class="spot-name">2. 红海子（迦嘎措）</div>
-          <div class="spot-desc">小众免费海子，雪山倒影，比折多山人少很多。</div>
-        </div>
-        <div class="photo-spot">
-          <div class="spot-name">3. 泸定桥 · 红色铁索桥</div>
-          <div class="spot-desc">桥中央拍纵深感，或对岸拍桥身全貌。穿搭：白/黑/牛仔。</div>
+        <div class="timeline">
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">09:10–09:40</div>
+              <div class="thing">斯丁措航拍</div>
+              <div class="note">停留30分钟。飞机低飞+雪山+湖泊同框，无人机必带。没有无人机拍湖面倒影也很美。</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🍜</span> 吃什么</div>
-        <span class="tag tag-red">田凉粉</span>
-        <span class="tag tag-green">老字号李凉粉</span>
-        <span class="tag tag-brown">高家豆花饭</span>
+        <div class="section-title"><span class="icon">🍜</span> 午餐：泸定服务区｜45km/50min</div>
+        <div class="time-block">
+          斯丁措→泸定服务区：<span>50min</span>｜S434省道｜预计<span>10:30</span>到
+        </div>
+        <div class="food-card">
+          <div class="food-title">推荐：泸定服务区简餐</div>
+          <div class="food-detail">盖饭、面条、小吃，7人约320元。快速解决，为下午高速返程留时间。</div>
+        </div>
+        <div class="food-card">
+          <div class="food-title">备选：泸定县城田凉粉 / 李凉粉</div>
+          <div class="food-detail">凉粉、锅魁夹凉粉，人均10–15元。如时间充裕可下高速吃。</div>
+        </div>
       </div>
 
+      <div class="section">
+        <div class="section-title"><span class="icon">🛣️</span> 第三段：泸定服务区 → 成都｜220km/3h</div>
+        <div class="time-block">
+          正常驾驶：<span>3h</span>｜G4218雅康高速｜高速费：<span>137元</span>｜暑期返程拥堵预留：<span>+20min</span>
+        </div>
+        <div class="timeline">
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">11:30</div>
+              <div class="thing">泸定服务区上高速</div>
+              <div class="note">全程高速，天全服务区可再次休息补给。保持油量充足。</div>
+            </div>
+          </div>
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">14:30–15:00</div>
+              <div class="thing">天全服务区休息</div>
+              <div class="note">停车15–20分钟，上厕所、买水、活动筋骨。</div>
+            </div>
+          </div>
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">17:10</div>
+              <div class="thing">抵达成都市区</div>
+              <div class="note">周日返程，建议避开14:00–16:00进城高峰。17:10到成都，满足18:00前到家要求。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">📸</span> 返程拍照Tips</div>
+        <div class="tips-grid">
+          <div class="tip-box">
+            <div class="tip-title">红海子</div>
+            <div class="tip-text">雪山倒影镜面湖，上午8:30–9:30光线最柔。</div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-title">斯丁措</div>
+            <div class="tip-text">飞机低飞+雪山湖泊同框，无人机必带。</div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-title">彩虹机场路</div>
+            <div class="tip-text">公路大片，车少路直，注意安全别坐路中。</div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-title">穿搭建议</div>
+            <div class="tip-text">浅色系长裙、牛仔套装、草帽、披肩。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">💰</span> D4 当日花销汇总</div>
+        <div class="info-row"><span class="label">午餐（泸定服务区）</span><span class="value">320元</span></div>
+        <div class="info-row"><span class="label">油费（约305km）</span><span class="value">约280元</span></div>
+        <div class="info-row"><span class="label">高速费</span><span class="value">137元</span></div>
+        <div class="info-row"><span class="label">停车费</span><span class="value">0元</span></div>
+        <div class="info-row"><span class="label"><strong>D4合计</strong></span><span class="value"><strong>737元</strong></span></div>
+      </div>
     </div>
 
     <div class="footer-bar">
       <div class="author">
-        <div class="avatar" style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#F5D0C5 0%,#E8B4B8 100%);display:flex;align-items:center;justify-content:center;font:500 12px/1 sans-serif;color:#A65D4A;">JT</div>
+        <img class="avatar" src="file://C:/Users/Administrator/.claude/skills/ljg-card/assets/avatar_jt.png" alt="">
         <span class="author-name">JT</span>
       </div>
-      <span class="page">5 / 6</span>
+      <span class="page-num">4 / 5</span>
     </div>
   </div>
 
   <!-- Summary -->
-  <div class="page" data-index="5">
+  <div class="page" data-index="4">
     <div class="card-inner">
       <div class="header">
-        <span class="day-badge">费用 · 餐厅 · 装备</span>
+        <span class="day-badge">费用 · 装备 · 提示</span>
         <h1>旅行总结卡</h1>
-        <p class="vibe">川西318小环线B计划 · 7人出行 · 小众安全路线</p>
+        <p class="vibe">川西318音乐节小环线 · 7人一车 · 全程无重复路 · 约860km</p>
       </div>
 
       <div class="highlight-box">
-        <p><strong>行程总览</strong>：成都→四姑娘山→中路藏寨→塔公→新都桥→省道434→成都。全程约870km，纯驾驶16–19h，避开折多山、避开夜路翻垭口。</p>
+        <p><strong>行程总览</strong>：成都→康定→折多山→新都桥→甲根坝→鱼子西→塔公音乐节→康定→S434红海子/斯丁措→泸定→成都。去程翻折多山，返程走机场路，全程无回头路。</p>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🎫</span> 门票汇总（单人）</div>
-        <div class="table-wrap">
-          <table>
-            <tr><th>景点</th><th>门票</th><th>观光车</th><th>合计</th></tr>
-            <tr><td>双桥沟</td><td>80元</td><td>70元</td><td>150元</td></tr>
-            <tr><td>中路藏寨</td><td>免费</td><td>—</td><td>0元</td></tr>
-            <tr><td>墨石公园</td><td>60元</td><td>20元</td><td>80元</td></tr>
-            <tr><td>泸定桥</td><td>10元</td><td>—</td><td>10元</td></tr>
-            <tr><td><strong>合计</strong></td><td>—</td><td>—</td><td><strong>240元/人</strong></td></tr>
+        <div class="section-title"><span class="icon">🛣️</span> 每日里程与耗时</div>
+        <div class="info-row"><span class="label">D1 成都→新都桥</span><span class="value">340km / 约7.5h</span></div>
+        <div class="info-row"><span class="label">D2 新都桥→塔公镇</span><span class="value">约115km / 约3h车程+游玩</span></div>
+        <div class="info-row"><span class="label">D3 塔公→康定</span><span class="value">约100km / 约1.5h夜路</span></div>
+        <div class="info-row"><span class="label">D4 康定→成都</span><span class="value">305km / 约5.5h（含游玩）</span></div>
+        <div class="info-row"><span class="label"><strong>全程合计</strong></span><span class="value"><strong>约860km</strong></span></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">💰</span> 全程总费用拆分</div>
+        <div class="info-row"><span class="label">油费（860km，11L/100km，9.2元/L）</span><span class="value">约870元</span></div>
+        <div class="info-row"><span class="label">高速费（D1+D4）</span><span class="value">274元</span></div>
+        <div class="info-row"><span class="label">停车费（折多山+塔公草原）</span><span class="value">40元</span></div>
+        <div class="info-row"><span class="label">住宿3晚</span><span class="value">2400元</span></div>
+        <div class="info-row"><span class="label">餐饮4天</span><span class="value">2865元</span></div>
+        <div class="info-row"><span class="label">景区门票（仅鱼子西）</span><span class="value">210元</span></div>
+        <div class="info-row"><span class="label"><strong>全套全包合计</strong></span><span class="value"><strong>约6659元</strong></span></div>
+        <div class="info-row"><span class="label"><strong>人均分摊</strong></span><span class="value"><strong>约951元/人</strong></span></div>
+        <p style="font:400 13px/1.6 var(--font); color:var(--text-dim); margin-top:12px;">不含音乐节门票、个人购物及自备零食酒水。去掉墨石公园后，人均节省约100元。</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="icon">🎫</span> 景区门票</div>
+        <div style="overflow:hidden;border-radius:12px;border:1px solid var(--rule);">
+          <table style="width:100%; border-collapse:collapse; font:400 14px/1.5 var(--font); color:var(--text);">
+            <tr style="background:#F5F0E8;"><th style="text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);">景点</th><th style="text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);">费用</th></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--rule); color:var(--text-mid);">甲根坝</td><td style="padding:8px 10px;border-bottom:1px solid var(--rule); color:var(--text-mid);">免费</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid var(--rule); color:var(--text-mid);">鱼子西</td><td style="padding:8px 10px;border-bottom:1px solid var(--rule); color:var(--text-mid);">30元/人</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--text-mid);"><strong>7人合计</strong></td><td style="padding:8px 10px; color:var(--text-mid);"><strong>210元</strong></td></tr>
           </table>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title"><span class="icon">💰</span> 7人总费用估算</div>
-        <div class="info-row"><span class="label">油费</span><span class="value">900–1200元</span></div>
-        <div class="info-row"><span class="label">过路费</span><span class="value">150–200元</span></div>
-        <div class="info-row"><span class="label">住宿3晚（7人）</span><span class="value">1500–3000元</span></div>
-        <div class="info-row"><span class="label">门票（7人）</span><span class="value">约1680元</span></div>
-        <div class="info-row"><span class="label">餐饮（7人4天）</span><span class="value">2000–3500元</span></div>
-        <div class="info-row"><span class="label"><strong>合计</strong></span><span class="value"><strong>约6200–9600元</strong></span></div>
-        <p class="small-text">不含音乐节门票及个人购物。走中路藏寨可省甲居门票350元。</p>
-      </div>
-
-      <div class="section">
-        <div class="section-title"><span class="icon">🍜</span> 推荐餐厅清单</div>
-        <div class="food-list">
-          <div class="food-item">
-            <div class="food-place">四姑娘山 · 野菌王牦牛肉汤锅</div>
-            <div class="food-detail">野生菌牦牛火锅 · 人均66元</div>
-          </div>
-          <div class="food-item">
-            <div class="food-place">四姑娘山 · 长坪驿多肉花园咖啡餐厅</div>
-            <div class="food-detail">牦牛肉汤锅、松茸炒饭 · 人均80元</div>
-          </div>
-          <div class="food-item">
-            <div class="food-place">中路藏寨 · 丹巴格西长清藏家乐</div>
-            <div class="food-detail">藏家餐、香猪腿 · 人均80–120元</div>
-          </div>
-          <div class="food-item">
-            <div class="food-place">八美 · 母亲指路藏餐厅</div>
-            <div class="food-detail">手抓牛肉、酥油茶 · 人均60元</div>
-          </div>
-          <div class="food-item">
-            <div class="food-place">塔公 · 当地牦牛肉汤锅店</div>
-            <div class="food-detail">牦牛肉汤锅、酸奶 · 人均80–100元</div>
-          </div>
-          <div class="food-item">
-            <div class="food-place">新都桥 · 康定黑青稞庄园</div>
-            <div class="food-detail">牛肉盖被 · 人均85元</div>
-          </div>
-          <div class="food-item">
-            <div class="food-place">康定 · 田凉粉 / 老字号李凉粉</div>
-            <div class="food-detail">凉粉、锅魁夹凉粉 · 人均8–13元</div>
-          </div>
-          <div class="food-item">
-            <div class="food-place">泸定 · 高家豆花饭</div>
-            <div class="food-detail">豆花饭 · 人均27元</div>
-          </div>
         </div>
       </div>
 
@@ -1113,48 +1069,62 @@
           </div>
           <div class="tip-box">
             <div class="tip-title">保暖</div>
-            <div class="tip-text">羽绒服/冲锋衣、保暖内衣、暖宝宝</div>
+            <div class="tip-text">羽绒服/冲锋衣、保暖内衣、暖宝宝、厚袜子</div>
           </div>
           <div class="tip-box">
             <div class="tip-title">高反</div>
-            <div class="tip-text">氧气瓶、红景天、葡萄糖、感冒药</div>
+            <div class="tip-text">氧气瓶、葡萄糖、布洛芬、感冒药</div>
           </div>
           <div class="tip-box">
             <div class="tip-title">补给</div>
-            <div class="tip-text">保温杯、干粮、充电宝、纸巾、湿巾</div>
+            <div class="tip-text">保温杯、干粮、充电宝、纸巾、湿巾、现金</div>
           </div>
           <div class="tip-box">
             <div class="tip-title">车上</div>
-            <div class="tip-text">防滑链（雨季备用）、垃圾袋、颈枕</div>
+            <div class="tip-text">防滑链（雨季备用）、垃圾袋、颈枕、折叠凳</div>
           </div>
         </div>
       </div>
 
       <div class="section">
         <div class="section-title"><span class="icon">📸</span> 必拍机位</div>
-        <span class="tag tag-red">猫鼻梁</span>
-        <span class="tag tag-green">双桥沟珠噶纳措</span>
-        <span class="tag tag-brown">中路藏寨</span>
-        <span class="tag tag-yellow">墨石公园</span>
-        <span class="tag tag-red">塔公后山</span>
-        <span class="tag tag-green">省道434机场路</span>
-        <span class="tag tag-brown">红海子</span>
-        <span class="tag tag-yellow">泸定桥</span>
+        <span class="tag tag-red">折多山经幡</span>
+        <span class="tag tag-green">新都桥溪流</span>
+        <span class="tag tag-brown">甲根坝青稞田</span>
+        <span class="tag tag-yellow">鱼子西双雪山</span>
+        <span class="tag tag-red">塔公草原舞台</span>
+        <span class="tag tag-green">红海子</span>
+        <span class="tag tag-brown">斯丁措飞机</span>
+        <span class="tag tag-yellow">彩虹机场路</span>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🎵</span> 音乐节装备提醒</div>
-        <p class="small-text"><strong>防晒</strong>：防晒霜、帽子、墨镜、唇膏、口罩；<strong>保暖</strong>：羽绒服/冲锋衣、暖宝宝（夜间可能降至5–10°C）；<strong>补给</strong>：保温杯、干粮、氧气瓶、充电宝、现金；<strong>其他</strong>：湿巾、纸巾、垃圾袋、身份证。23:00离场后开车回新都桥，限速行驶，注意牦牛横穿。</p>
+        <div class="section-title"><span class="icon">⚠️</span> 关键提醒</div>
+        <div class="summary-block">
+          <div class="summary-title">高原适应</div>
+          <div class="summary-text">新都桥3460m、甲根坝约3300m、鱼子西3800m、塔公3730m。D1不洗澡不饮酒，全程慢走。</div>
+        </div>
+        <div class="summary-block">
+          <div class="summary-title">音乐节专属</div>
+          <div class="summary-text">场内无正规餐厅物价高，提前采购水粮；夜间降温快，厚外套随身携带；停车清洁费20元/车。</div>
+        </div>
+        <div class="summary-block">
+          <div class="summary-title">住宿预订</div>
+          <div class="summary-text">康定密那民宿为固定住宿点，音乐节房源紧张，建议提前15天预订。</div>
+        </div>
+        <div class="summary-block">
+          <div class="summary-title">时间节点</div>
+          <div class="summary-text">D1 8:30成都出发、D3 12:00音乐节入场、D3 21:00离场、D4 18:00前到成都，四个时间不可动摇。</div>
+        </div>
       </div>
-
     </div>
 
     <div class="footer-bar">
       <div class="author">
-        <div class="avatar" style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#F5D0C5 0%,#E8B4B8 100%);display:flex;align-items:center;justify-content:center;font:500 12px/1 sans-serif;color:#A65D4A;">JT</div>
+        <img class="avatar" src="file://C:/Users/Administrator/.claude/skills/ljg-card/assets/avatar_jt.png" alt="">
         <span class="author-name">JT</span>
       </div>
-      <span class="page">6 / 6</span>
+      <span class="page-num">5 / 5</span>
     </div>
   </div>
 
@@ -1167,7 +1137,6 @@
     <span class="dot" onclick="goTo(2)"></span>
     <span class="dot" onclick="goTo(3)"></span>
     <span class="dot" onclick="goTo(4)"></span>
-    <span class="dot" onclick="goTo(5)"></span>
   </div>
 
   <div class="hint">左右键 / 点击箭头 / 滑动切换</div>
@@ -1191,7 +1160,6 @@
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === pages.length - 1;
 
-    // Scroll active page to top
     const activePage = pages[current];
     if (activePage) {
       const inner = activePage.querySelector('.card-inner');
