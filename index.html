@@ -411,6 +411,72 @@
       color: var(--text-mid);
     }
 
+    .hotel-address-wrap {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      vertical-align: middle;
+    }
+
+    .hotel-address {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed var(--accent);
+      padding-bottom: 1px;
+      word-break: break-all;
+    }
+
+    .hotel-address:hover {
+      color: #A65D4A;
+      border-bottom-style: solid;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      border: 1px solid var(--rule);
+      background: var(--paper);
+      cursor: pointer;
+      font-size: 12px;
+      color: var(--text-mid);
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(61,58,54,0.88);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 100px;
+      font: 400 14px/1 var(--font);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 100;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     @media (max-width: 480px) {
       .page { width: 94vw; height: 88vh; }
       .card-inner { padding: 24px 20px 20px; }
@@ -470,19 +536,19 @@
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🍜</span> 午餐：康定溜溜城｜108km/1.5h</div>
+        <div class="section-title"><span class="icon">🍜</span> 沿途美食参考｜康定溜溜城</div>
         <div class="time-block">
-          天全→康定：<span>1.5h</span>（隧道群限速80，基本不堵）｜高速费：<span>67元</span>｜预计<span>12:00</span>到康定
+          预计<span>12:00</span>到康定，午餐时间较充裕，可在溜溜城附近自选。
         </div>
         <div class="food-card">
-          <div class="food-title">推荐：青稞·藏餐吧 / 康定老城牦牛肉汤锅</div>
-          <div class="food-detail">7人整桌约480元。推荐：牦牛肉汤锅、酥油茶、青稞饼、酸奶。</div>
+          <div class="food-title">参考：青稞·藏餐吧 / 康定老城牦牛肉汤锅</div>
+          <div class="food-detail">7人整桌约480元（仅供参考）。推荐：牦牛肉汤锅、酥油茶、青稞饼、酸奶。</div>
         </div>
         <div class="food-card">
-          <div class="food-title">备选：溜溜城小吃街</div>
-          <div class="food-detail">凉粉、锅魁、抄手，人均20–35元，适合快速解决。</div>
+          <div class="food-title">参考：溜溜城小吃街</div>
+          <div class="food-detail">凉粉、锅魁、抄手，人均20–35元（仅供参考），适合快速解决。</div>
         </div>
-        <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">饭后在康定情歌广场、折多河沿岸散步20分钟，打卡彩色藏式民居和康定情歌雕塑。</p>
+        <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">饭后可在康定情歌广场、折多河沿岸散步20分钟，打卡彩色藏式民居和康定情歌雕塑。</p>
       </div>
 
       <div class="section">
@@ -529,35 +595,32 @@
             <div class="time-content">
               <div class="time">16:00</div>
               <div class="thing">抵达新都桥镇入住酒店</div>
-              <div class="note">供氧观景民宿（2标间+1三人间），780元/晚，含次日早餐。</div>
+              <div class="note">地址：<span class="hotel-address-wrap"><a class="hotel-address" href="https://uri.amap.com/search?keyword=%E5%BA%B7%E5%AE%9A%E5%B8%82%E8%90%A5%E5%AE%98%E6%9D%91%E4%B8%80%E7%BB%8482%E5%8F%B7%EF%BC%88%E8%B4%A1%E5%99%9C%E9%9B%AA%E5%B1%B1%E8%A7%82%E6%99%AF%E5%8F%B0%E4%B8%8B%EF%BC%89" target="_blank">康定市营官村一组82号（贡嘎雪山观景台下）</a><button class="copy-btn" onclick="copyText('康定市营官村一组82号（贡嘎雪山观景台下）')" title="复制地址">📋</button></span><br>3间客房，492元/晚，含次日早餐。</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🌙</span> 晚餐 & 休息</div>
+        <div class="section-title"><span class="icon">🍜</span> 沿途美食参考｜新都桥镇</div>
         <div class="food-card">
-          <div class="food-title">推荐：等风来藏餐厅 / 新都桥牦牛肉汤锅</div>
-          <div class="food-detail">藏香猪、青稞饼、牦牛肉、松茸炒饭，7人约520元。初到高原吃七分饱。</div>
+          <div class="food-title">参考：等风来藏餐厅 / 新都桥牦牛肉汤锅</div>
+          <div class="food-detail">藏香猪、青稞饼、牦牛肉、松茸炒饭，7人约520元（仅供参考）。初到高原吃七分饱。</div>
         </div>
         <div class="food-card">
-          <div class="food-title">备选：镇上川菜馆</div>
-          <div class="food-detail">吃不惯藏餐可选，回锅肉、番茄炒蛋、酸菜粉丝汤，人均40–50元。</div>
+          <div class="food-title">参考：镇上川菜馆</div>
+          <div class="food-detail">吃不惯藏餐可选，回锅肉、番茄炒蛋、酸菜粉丝汤，人均40–50元（仅供参考）。</div>
         </div>
         <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">晚上不洗澡、不喝酒、不熬夜。如头痛胸闷，民宿有弥散供氧，氧气罐约20元/罐。</p>
       </div>
 
       <div class="section">
         <div class="section-title"><span class="icon">💰</span> D1 当日花销汇总</div>
-        <div class="info-row"><span class="label">早餐（天全服务区）</span><span class="value">175元</span></div>
-        <div class="info-row"><span class="label">午餐（康定）</span><span class="value">480元</span></div>
-        <div class="info-row"><span class="label">晚餐（新都桥）</span><span class="value">520元</span></div>
-        <div class="info-row"><span class="label">住宿（新都桥）</span><span class="value">780元</span></div>
+        <div class="info-row"><span class="label">住宿（新都桥）</span><span class="value">492元</span></div>
         <div class="info-row"><span class="label">高速费</span><span class="value">137元</span></div>
         <div class="info-row"><span class="label">油费（约340km，11L/100km）</span><span class="value">约313元</span></div>
         <div class="info-row"><span class="label">停车费</span><span class="value">20元</span></div>
-        <div class="info-row"><span class="label"><strong>D1合计</strong></span><span class="value"><strong>2425元</strong></span></div>
+        <div class="info-row"><span class="label"><strong>D1合计</strong></span><span class="value"><strong>962元</strong></span></div>
       </div>
     </div>
 
@@ -622,17 +685,17 @@
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🍜</span> 午餐：甲根坝藏家乐｜就地用餐</div>
+        <div class="section-title"><span class="icon">🍜</span> 沿途美食参考｜甲根坝</div>
         <div class="time-block">
-          预计<span>11:00–12:00</span>用餐｜7人约350元
+          预计<span>11:00–12:00</span>用餐，甲根坝餐厅少，可就地或自带干粮。
         </div>
         <div class="food-card">
-          <div class="food-title">推荐：甲根坝藏家乐</div>
-          <div class="food-detail">牛肉盖被、藏面、酥油茶、酸奶，7人约350元。提前联系藏家乐预留座位。</div>
+          <div class="food-title">参考：甲根坝藏家乐</div>
+          <div class="food-detail">牛肉盖被、藏面、酥油茶、酸奶，7人约350元（仅供参考）。提前联系藏家乐预留座位。</div>
         </div>
         <div class="food-card">
-          <div class="food-title">备选：自带干粮/自热米饭</div>
-          <div class="food-detail">甲根坝餐厅少，可提前在新都桥超市采购，7人约150元。</div>
+          <div class="food-title">参考：自带干粮/自热米饭</div>
+          <div class="food-detail">甲根坝餐厅少，可提前在新都桥超市采购，7人约150元（仅供参考）。</div>
         </div>
         <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">甲根坝停留约3h（含用餐）。这里人少景野，适合拍藏寨人文和田园风光。</p>
       </div>
@@ -679,36 +742,42 @@
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">17:30</div>
-              <div class="thing">入住塔公镇供氧民宿</div>
-              <div class="note">3间客房，700元/晚，含次日早餐。海拔3730m，注意高反。</div>
+              <div class="time">17:30–18:00</div>
+              <div class="thing">塔公镇 → 新都桥镇返程</div>
+              <div class="note">约30km/30min，走S434省道返回新都桥方向。傍晚光线柔和，可在沿途草原再停一次拍照。</div>
+            </div>
+          </div>
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">18:30</div>
+              <div class="thing">入住新都桥镇酒店</div>
+              <div class="note">地址：<span class="hotel-address-wrap"><a class="hotel-address" href="https://uri.amap.com/search?keyword=%E5%9B%9B%E5%B7%9D%E5%BA%B7%E5%AE%9A%E6%96%B0%E9%83%BD%E6%A1%A5%E9%95%87%E4%B8%8B%E6%9F%8F%E6%A1%91%E4%BA%8C%E6%9D%91%E4%B8%80%E7%BB%84%E4%B8%80%E5%8F%B7" target="_blank">四川康定新都桥镇下柏桑二村一组一号</a><button class="copy-btn" onclick="copyText('四川康定新都桥镇下柏桑二村一组一号')" title="复制地址">📋</button></span><br>3间客房，442元/晚，含次日早餐。海拔约3460m，注意高反。</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🌙</span> 晚餐 & 休息</div>
+        <div class="section-title"><span class="icon">🍜</span> 沿途美食参考｜新都桥镇</div>
         <div class="food-card">
-          <div class="food-title">推荐：塔公镇川味汤锅店 / 藏餐吧</div>
-          <div class="food-detail">牦牛肉汤锅、酸奶、糌粑，7人约450元。热汤暖胃，适合高海拔夜晚。</div>
+          <div class="food-title">参考：新都桥镇牦牛肉汤锅 / 藏餐厅</div>
+          <div class="food-detail">牦牛肉汤锅、青稞饼、酸奶、糌粑，7人约480元（仅供参考）。热汤暖胃，适合高海拔夜晚。</div>
         </div>
         <div class="food-card">
-          <div class="food-title">备选：镇上川菜小馆</div>
-          <div class="food-detail">回锅肉、麻婆豆腐、番茄蛋汤，人均45–55元。</div>
+          <div class="food-title">参考：新都桥川菜馆</div>
+          <div class="food-detail">回锅肉、麻婆豆腐、番茄蛋汤，人均40–50元（仅供参考）。</div>
         </div>
-        <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">塔公海拔3730m，是全程最高住宿点。当晚务必早睡，为第二天音乐节储备体力。不洗澡、不喝酒。</p>
+        <p style="font:400 13px/1.6 var(--font); color:var(--text-mid); margin-top:10px;">新都桥海拔约3460m，当晚务必早睡，为第二天音乐节储备体力。不洗澡、不喝酒。</p>
       </div>
 
       <div class="section">
         <div class="section-title"><span class="icon">💰</span> D2 当日花销汇总</div>
-        <div class="info-row"><span class="label">午餐（甲根坝藏家乐）</span><span class="value">350元</span></div>
-        <div class="info-row"><span class="label">晚餐（塔公镇）</span><span class="value">450元</span></div>
-        <div class="info-row"><span class="label">住宿（塔公镇）</span><span class="value">700元</span></div>
+        <div class="info-row"><span class="label">住宿（新都桥镇）</span><span class="value">442元</span></div>
         <div class="info-row"><span class="label">鱼子西门票</span><span class="value">210元</span></div>
-        <div class="info-row"><span class="label">油费（约115km）</span><span class="value">约110元</span></div>
+        <div class="info-row"><span class="label">油费（约145km）</span><span class="value">约135元</span></div>
         <div class="info-row"><span class="label">高速费</span><span class="value">0元</span></div>
-        <div class="info-row"><span class="label"><strong>D2合计</strong></span><span class="value"><strong>1820元</strong></span></div>
+        <div class="info-row"><span class="label"><strong>D2合计</strong></span><span class="value"><strong>787元</strong></span></div>
       </div>
     </div>
 
@@ -726,17 +795,17 @@
     <div class="card-inner">
       <div class="header">
         <span class="day-badge">DAY 3 · 7月19日 周六</span>
-        <h1>塔公草原音乐节 → 康定密那民宿</h1>
-        <p class="vibe">音乐节核心日。12:00入场，21:00结束，夜间97km盘山省道回康定。</p>
+        <h1>塔公草原音乐节</h1>
+        <p class="vibe">音乐节核心日。12:00入场，21:00结束，住宿就在塔公镇，离场后短驾即可回民宿休息。</p>
       </div>
 
       <div class="highlight-box">
-        <p><strong>今日主题</strong>：只看音乐节。21:00结束后开97km夜路约1.5h回康定密那民宿，这是硬性固定住宿。</p>
+        <p><strong>今日主题</strong>：只看音乐节。21:00结束后返回塔公镇民宿，不用赶夜路回康定，节奏更轻松。</p>
       </div>
 
       <div class="drive-safe">
         <div class="safe-title">🚗 自驾安全提示</div>
-        <div class="safe-text">塔公→康定S434盘山省道夜间无路灯，注意落石、对向车灯、牦牛横穿；建议两位司机轮换，控制车速。</div>
+        <div class="safe-text">塔公镇周边草原小路夜间无路灯，离场时注意行人、牦牛横穿及对向车灯；控制车速，建议提前熟悉回民宿路线。</div>
       </div>
 
       <div class="section">
@@ -797,9 +866,17 @@
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">21:00–22:30</div>
-              <div class="thing">离场 → 康定密那民宿｜97km/1.5h</div>
-              <div class="note">避开离场高峰，走S434盘山省道夜路。两位司机轮换，开雾灯、控车速。</div>
+              <div class="time">21:00–21:40</div>
+              <div class="thing">离场 → 返回塔公镇民宿｜约5km/10min</div>
+              <div class="note">避开离场高峰，短驾回民宿。夜间草原小路注意行人、牦牛及对向车灯。</div>
+            </div>
+          </div>
+          <div class="time-item">
+            <div class="time-dot"></div>
+            <div class="time-content">
+              <div class="time">22:00</div>
+              <div class="thing">塔公镇宵夜</div>
+              <div class="note">烧烤/汤锅简餐，7人约300元。吃完直接回民宿休息，无需赶路。</div>
             </div>
           </div>
         </div>
@@ -830,24 +907,22 @@
       <div class="section">
         <div class="section-title"><span class="icon">🌙</span> 宵夜 & 住宿</div>
         <div class="food-card">
-          <div class="food-title">23:20 康定密那民宿楼下烧烤</div>
-          <div class="food-detail">7人约320元。烤串+啤酒（可少量），吃完直接上楼休息。</div>
+          <div class="food-title">22:00 塔公镇烧烤/汤锅（仅供参考）</div>
+          <div class="food-detail">7人约300元。烤串+热汤，少量啤酒即可，吃完直接回民宿休息。</div>
         </div>
         <div class="food-card">
-          <div class="food-title">住宿：康定密那民宿（固定）</div>
-          <div class="food-detail">3间观景客房，920元/晚，含次日早餐。海拔约2560m，可好好休息。</div>
+          <div class="food-title">住宿：固定住宿点</div>
+          <div class="food-detail">地址：<span class="hotel-address-wrap"><a class="hotel-address" href="https://uri.amap.com/search?keyword=%E5%9B%9B%E5%B7%9D%E5%BA%B7%E5%AE%9A%E5%A1%94%E5%85%AC%E9%95%87%E4%B8%8B%E9%A9%AC%E9%BE%99%E6%9D%91%E4%B8%80%E7%BB%848%E5%8F%B7" target="_blank">四川康定塔公镇下马龙村一组8号</a><button class="copy-btn" onclick="copyText('四川康定塔公镇下马龙村一组8号')" title="复制地址">📋</button></span><br>3间观景客房，581元/晚，含次日早餐。海拔约3730m，可好好休息。</div>
         </div>
       </div>
 
       <div class="section">
         <div class="section-title"><span class="icon">💰</span> D3 当日花销汇总</div>
-        <div class="info-row"><span class="label">午餐（塔公镇）</span><span class="value">350元</span></div>
-        <div class="info-row"><span class="label">宵夜（康定）</span><span class="value">320元</span></div>
-        <div class="info-row"><span class="label">住宿（康定密那民宿）</span><span class="value">920元</span></div>
-        <div class="info-row"><span class="label">油费（约100km）</span><span class="value">约92元</span></div>
+        <div class="info-row"><span class="label">住宿（固定住宿点）</span><span class="value">581元</span></div>
+        <div class="info-row"><span class="label">油费（约20km）</span><span class="value">约20元</span></div>
         <div class="info-row"><span class="label">停车费（草原清洁费）</span><span class="value">20元</span></div>
         <div class="info-row"><span class="label">高速费</span><span class="value">0元</span></div>
-        <div class="info-row"><span class="label"><strong>D3合计</strong></span><span class="value"><strong>1702元</strong></span></div>
+        <div class="info-row"><span class="label"><strong>D3合计</strong></span><span class="value"><strong>621元</strong></span></div>
       </div>
     </div>
 
@@ -865,12 +940,12 @@
     <div class="card-inner">
       <div class="header">
         <span class="day-badge">DAY 4 · 7月20日 周日</span>
-        <h1>康定 → S434机场路 → 成都</h1>
-        <p class="vibe">全程305km全新返程线。红海子+斯丁措航拍，17:10到成都，满足18:00前到家。</p>
+        <h1>塔公 → S434机场路 → 成都</h1>
+        <p class="vibe">全程约340km全新返程线。塔公出发经S434红海子、斯丁措航拍，17:10到成都，满足18:00前到家。</p>
       </div>
 
       <div class="highlight-box">
-        <p><strong>今日主题</strong>：返程不重复。S434康定机场路（彩虹公路）全新景观线，完全避开折多山，风景和去程完全不同。</p>
+        <p><strong>今日主题</strong>：返程不重复。从塔公镇走S434康定机场路（彩虹公路）回成都，完全避开折多山，风景和去程完全不同。</p>
       </div>
 
       <div class="drive-safe">
@@ -879,9 +954,9 @@
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🚗</span> 第一段：康定 → 红海子｜22km/30min</div>
+        <div class="section-title"><span class="icon">🚗</span> 第一段：塔公 → 红海子｜约35km/40min</div>
         <div class="time-block">
-          正常驾驶：<span>30min</span>｜S434彩虹机场路｜免费｜上午光线最佳
+          正常驾驶：<span>40min</span>｜S434彩虹机场路｜免费｜上午光线最佳
         </div>
         <div class="timeline">
           <div class="time-item">
@@ -889,13 +964,13 @@
             <div class="time-content">
               <div class="time">08:00</div>
               <div class="thing">酒店早餐后退房出发</div>
-              <div class="note">从康定密那民宿出发，走S434往康定机场方向，一路彩虹公路+雪山远景。</div>
+              <div class="note">从塔公镇住宿出发，走S434往康定机场方向，一路彩虹公路+雪山远景。</div>
             </div>
           </div>
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">08:30–09:10</div>
+              <div class="time">08:40–09:20</div>
               <div class="thing">红海子拍照</div>
               <div class="note">停留40分钟。雪山镜面湖泊，免费网红机位。浅色系长裙+草帽最出片。</div>
             </div>
@@ -912,7 +987,7 @@
           <div class="time-item">
             <div class="time-dot"></div>
             <div class="time-content">
-              <div class="time">09:10–09:40</div>
+              <div class="time">09:20–09:50</div>
               <div class="thing">斯丁措航拍</div>
               <div class="note">停留30分钟。飞机低飞+雪山+湖泊同框，无人机必带。没有无人机拍湖面倒影也很美。</div>
             </div>
@@ -921,17 +996,17 @@
       </div>
 
       <div class="section">
-        <div class="section-title"><span class="icon">🍜</span> 午餐：泸定服务区｜45km/50min</div>
+        <div class="section-title"><span class="icon">🍜</span> 沿途美食参考｜泸定服务区</div>
         <div class="time-block">
-          斯丁措→泸定服务区：<span>50min</span>｜S434省道｜预计<span>10:30</span>到
+          预计<span>10:40</span>到泸定服务区，午餐时间较充裕，可自选简餐或下高速去县城。
         </div>
         <div class="food-card">
-          <div class="food-title">推荐：泸定服务区简餐</div>
-          <div class="food-detail">盖饭、面条、小吃，7人约320元。快速解决，为下午高速返程留时间。</div>
+          <div class="food-title">参考：泸定服务区简餐</div>
+          <div class="food-detail">盖饭、面条、小吃，7人约320元（仅供参考）。快速解决，为下午高速返程留时间。</div>
         </div>
         <div class="food-card">
-          <div class="food-title">备选：泸定县城田凉粉 / 李凉粉</div>
-          <div class="food-detail">凉粉、锅魁夹凉粉，人均10–15元。如时间充裕可下高速吃。</div>
+          <div class="food-title">参考：泸定县城田凉粉 / 李凉粉</div>
+          <div class="food-detail">凉粉、锅魁夹凉粉，人均10–15元（仅供参考）。如时间充裕可下高速吃。</div>
         </div>
       </div>
 
@@ -992,11 +1067,10 @@
 
       <div class="section">
         <div class="section-title"><span class="icon">💰</span> D4 当日花销汇总</div>
-        <div class="info-row"><span class="label">午餐（泸定服务区）</span><span class="value">320元</span></div>
-        <div class="info-row"><span class="label">油费（约305km）</span><span class="value">约280元</span></div>
+        <div class="info-row"><span class="label">油费（约340km，11L/100km）</span><span class="value">约313元</span></div>
         <div class="info-row"><span class="label">高速费</span><span class="value">137元</span></div>
-        <div class="info-row"><span class="label">停车费</span><span class="value">0元</span></div>
-        <div class="info-row"><span class="label"><strong>D4合计</strong></span><span class="value"><strong>737元</strong></span></div>
+        <div class="info-row"><span class="label">停车费</span><span class="value">20元</span></div>
+        <div class="info-row"><span class="label"><strong>D4合计</strong></span><span class="value"><strong>470元</strong></span></div>
       </div>
     </div>
 
@@ -1019,29 +1093,28 @@
       </div>
 
       <div class="highlight-box">
-        <p><strong>行程总览</strong>：成都→康定→折多山→新都桥→甲根坝→鱼子西→塔公音乐节→康定→S434红海子/斯丁措→泸定→成都。去程翻折多山，返程走机场路，全程无回头路。</p>
+        <p><strong>行程总览</strong>：成都→康定→折多山→新都桥→甲根坝→鱼子西→塔公音乐节→塔公镇→S434红海子/斯丁措→泸定→成都。去程翻折多山，返程走机场路，全程无回头路。</p>
       </div>
 
       <div class="section">
         <div class="section-title"><span class="icon">🛣️</span> 每日里程与耗时</div>
         <div class="info-row"><span class="label">D1 成都→新都桥</span><span class="value">340km / 约7.5h</span></div>
-        <div class="info-row"><span class="label">D2 新都桥→塔公镇</span><span class="value">约115km / 约3h车程+游玩</span></div>
-        <div class="info-row"><span class="label">D3 塔公→康定</span><span class="value">约100km / 约1.5h夜路</span></div>
-        <div class="info-row"><span class="label">D4 康定→成都</span><span class="value">305km / 约5.5h（含游玩）</span></div>
-        <div class="info-row"><span class="label"><strong>全程合计</strong></span><span class="value"><strong>约860km</strong></span></div>
+        <div class="info-row"><span class="label">D2 新都桥→塔公→返回新都桥</span><span class="value">约145km / 约3.5h车程+游玩</span></div>
+        <div class="info-row"><span class="label">D3 塔公音乐节</span><span class="value">约20km / 镇内短驾</span></div>
+        <div class="info-row"><span class="label">D4 塔公→成都</span><span class="value">约340km / 约5.5h（含游玩）</span></div>
+        <div class="info-row"><span class="label"><strong>全程合计</strong></span><span class="value"><strong>约845km</strong></span></div>
       </div>
 
       <div class="section">
         <div class="section-title"><span class="icon">💰</span> 全程总费用拆分</div>
-        <div class="info-row"><span class="label">油费（860km，11L/100km，9.2元/L）</span><span class="value">约870元</span></div>
+        <div class="info-row"><span class="label">油费（845km，11L/100km，9.2元/L）</span><span class="value">约855元</span></div>
         <div class="info-row"><span class="label">高速费（D1+D4）</span><span class="value">274元</span></div>
         <div class="info-row"><span class="label">停车费（折多山+塔公草原）</span><span class="value">40元</span></div>
-        <div class="info-row"><span class="label">住宿3晚</span><span class="value">2400元</span></div>
-        <div class="info-row"><span class="label">餐饮4天</span><span class="value">2865元</span></div>
+        <div class="info-row"><span class="label">住宿3晚</span><span class="value">1515元</span></div>
         <div class="info-row"><span class="label">景区门票（仅鱼子西）</span><span class="value">210元</span></div>
-        <div class="info-row"><span class="label"><strong>全套全包合计</strong></span><span class="value"><strong>约6659元</strong></span></div>
-        <div class="info-row"><span class="label"><strong>人均分摊</strong></span><span class="value"><strong>约951元/人</strong></span></div>
-        <p style="font:400 13px/1.6 var(--font); color:var(--text-dim); margin-top:12px;">不含音乐节门票、个人购物及自备零食酒水。去掉墨石公园后，人均节省约100元。</p>
+        <div class="info-row"><span class="label"><strong>全套全包合计</strong></span><span class="value"><strong>约2894元</strong></span></div>
+        <div class="info-row"><span class="label"><strong>人均分摊</strong></span><span class="value"><strong>约414元/人</strong></span></div>
+        <p style="font:400 13px/1.6 var(--font); color:var(--text-dim); margin-top:12px;">不含餐饮、音乐节门票、个人购物及自备零食酒水。住宿按7人1515元计，人均约216元；餐饮为沿途参考，不强制计划。</p>
       </div>
 
       <div class="section">
@@ -1110,7 +1183,7 @@
         </div>
         <div class="summary-block">
           <div class="summary-title">住宿预订</div>
-          <div class="summary-text">康定密那民宿为固定住宿点，音乐节房源紧张，建议提前15天预订。</div>
+          <div class="summary-text">塔公镇下马龙村一组8号为音乐节固定住宿点，19日当晚不用赶路；新都桥、塔公房源紧张，建议提前15天预订。</div>
         </div>
         <div class="summary-block">
           <div class="summary-title">时间节点</div>
@@ -1145,6 +1218,38 @@
 
 <script>
   let current = 0;
+
+  function copyText(text) {
+    const fallback = () => {
+      const input = document.createElement('input');
+      input.value = text;
+      input.style.position = 'fixed';
+      input.style.opacity = '0';
+      document.body.appendChild(input);
+      input.select();
+      try { document.execCommand('copy'); showToast('已复制地址'); }
+      catch (e) { showToast('复制失败，请手动复制'); }
+      document.body.removeChild(input);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => showToast('已复制地址')).catch(fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  function showToast(msg) {
+    let toast = document.querySelector('.toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
   const pages = document.querySelectorAll('.book > .page');
   const dots = document.querySelectorAll('.dot');
   const prevBtn = document.querySelector('.nav-btn.prev');
